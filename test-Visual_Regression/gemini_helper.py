@@ -11,8 +11,9 @@ def explain_diff_with_gemini(image_path, api_key):
         # Load the diff image
         img = Image.open(image_path)
 
-        # Use Gemini 1.5 Flash for speed and image support
-        model = genai.GenerativeModel(model_name="gemini-1.5-flash")
+        # Use Gemini Flash for speed and image support
+        #model = genai.GenerativeModel(model_name="gemini-1.5-flash")
+        model = genai.GenerativeModel(model_name="gemini-2.5-flash-preview-05-20")
 
         prompt = (
             "You are looking at a visual diff image created by comparing two webpage screenshots: a 'baseline' and a 'current' version. "
