@@ -6,7 +6,7 @@ from config import URL, BROWSERS, SCREENSHOTS_DIR, DIFFS_DIR, REPORT_PATH
 from utils.screenshot import capture_screenshot
 from utils.compare import compare_images
 
-# 🔐 Your Gemini API key here
+# Your Gemini API key here
 GEMINI_API_KEY = "your gemini api key"
 
 # Ensure necessary directories exist
@@ -27,7 +27,7 @@ def main():
             capture_screenshot(browser, URL, baseline_path)
 
         # Capture current screenshot
-        print(f"📸 Capturing current screenshot for {browser}")
+        print(f" Capturing current screenshot for {browser}")
         capture_screenshot(browser, URL, current_path)
 
         # Compare images
@@ -37,9 +37,9 @@ def main():
         # Run Gemini explanation if diff exists
         explanation = None
         if has_diff:
-            print(f"🤖 Generating explanation using Gemini for {browser}")
+            print(f" Generating explanation using Gemini for {browser}")
             explanation = explain_diff_with_gemini(diff_path, GEMINI_API_KEY)
-            print(f"\n🧠 Gemini's Explanation for {browser}:\n{explanation}\n")
+            print(f"\n Gemini's Explanation for {browser}:\n{explanation}\n")
 
         results.append((browser, has_diff, diff_path if has_diff else None, explanation))
 
